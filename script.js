@@ -51,7 +51,7 @@ themeToggle.addEventListener('click', () => {
     if (!span) return;
     const text = 'IRShadow - RvnIrs';
     let posY = 0, lastT = 0, lineH = 0, animId;
-    const speed = 80;
+    const speed = 20;
 
     const fill = () => {
         span.innerHTML = text;
