@@ -45,3 +45,22 @@ themeToggle.addEventListener('click', () => {
         heroImg.src = isLight ? 'Assets/LightModeMe.png' : 'Assets/DarkModeMe.png';
     }
 });
+
+(function() {
+    const span = document.querySelector('.hero-deco-text span');
+    if (!span) return;
+    const text = span.textContent.trim();
+    const fill = () => {
+        span.innerHTML = text;
+        const lineH = span.offsetHeight;
+        if (!lineH) return;
+        const visible = Math.ceil(window.innerHeight / lineH) + 4;
+        span.innerHTML = Array(visible * 3).fill(text).join('<br>');
+    };
+    requestAnimationFrame(() => requestAnimationFrame(fill));
+    let timer;
+    window.addEventListener('resize', () => {
+        clearTimeout(timer);
+        timer = setTimeout(fill, 200);
+    });
+})();
