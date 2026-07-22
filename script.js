@@ -36,6 +36,7 @@ window.addEventListener('scroll', () => {
 const themeToggle = document.getElementById('themeToggle');
 const icon = themeToggle.querySelector('i');
 const heroImg = document.getElementById('heroProfileImg');
+const stmLogo = document.getElementById('stmLogo');
 
 themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
@@ -43,6 +44,9 @@ themeToggle.addEventListener('click', () => {
     icon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
     if (heroImg) {
         heroImg.src = isLight ? 'Assets/LightModeMe.png' : 'Assets/DarkModeMe.png';
+    }
+    if (stmLogo) {
+        stmLogo.src = isLight ? 'Assets/STMLight.png' : 'Assets/STMDark.png';
     }
 });
 
@@ -104,4 +108,35 @@ document.getElementById('copyEmail').addEventListener('click', (e) => {
         setTimeout(() => toast.remove(), 2500);
     });
 });
+
+/* ===== Experience Carousel ===== */
+(function() {
+    const track = document.querySelector('.carousel-track');
+    if (!track) return;
+    const cards = track.querySelectorAll('.carousel-card');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    const dotsContainer = document.querySelector('.carousel-dots');
+    let index = 0;
+
+    cards.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+    });
+
+    function goTo(i) {
+        if (i < 0 || i >= cards.length) return;
+        index = i;
+        track.style.transform = 'translateX(-' + (index * 100) + '%)';
+        dotsContainer.querySelectorAll('.carousel-dot').forEach((d, j) => {
+            d.classList.toggle('active', j === index);
+        });
+    }
+
+    prevBtn.addEventListener('click', () => goTo(index - 1));
+    nextBtn.addEventListener('click', () => goTo(index + 1));
+})();
 

@@ -760,6 +760,10 @@ section:not(.hero) {
     font-size: 0.95rem;
     color: var(--text-muted);
     line-height: 1.7;
+    margin-bottom: 8px;
+}
+.exp-desc:last-of-type {
+    margin-bottom: 0;
 }
 
 .exp-tags {
@@ -988,6 +992,14 @@ footer .footer-social a:hover {
     background: var(--accent);
 }
 
+.light-mode .exp-header-info h3 {
+    color: #03234B;
+}
+
+.light-mode .carousel-card-num {
+    opacity: 1;
+}
+
 .light-mode .theme-toggle {
     background: var(--bg-elevated);
     border-color: rgba(0, 0, 0, 0.15);
@@ -1112,6 +1124,145 @@ footer .footer-social a:hover {
     to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
+/* ===== Experience Carousel ===== */
+.exp-header-info {
+    text-align: center;
+    margin-bottom: 28px;
+}
+.exp-header-info h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.exp-header-info .exp-role {
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+.exp-header-info .exp-date {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.carousel-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.carousel-track-wrap {
+    flex: 1;
+    overflow: hidden;
+    border-radius: var(--radius);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.carousel-card {
+    min-width: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.carousel-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--accent);
+}
+
+.carousel-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+.carousel-card-num {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    opacity: 0.6;
+    letter-spacing: 1px;
+}
+.carousel-card-header h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.carousel-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin: 0 0 14px;
+}
+
+.carousel-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.carousel-tags span {
+    font-size: 0.78rem;
+    padding: 4px 12px;
+    border-radius: 6px;
+    background: rgba(212, 168, 83, 0.1);
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.carousel-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+.carousel-btn:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: var(--border);
+    cursor: pointer;
+    transition: all 0.2s;
+    padding: 0;
+}
+.carousel-dot.active {
+    background: var(--accent);
+    transform: scale(1.25);
+}
+
 @media (max-width: 480px) {
     .hero-content h1 {
         font-size: 2rem;
@@ -1119,5 +1270,13 @@ footer .footer-social a:hover {
 
     .contact-card {
         padding: 28px;
+    }
+
+    .carousel-card {
+        padding: 24px;
+    }
+    .carousel-btn {
+        width: 32px;
+        height: 32px;
     }
 }
