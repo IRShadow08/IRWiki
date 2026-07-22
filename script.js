@@ -94,3 +94,14 @@ themeToggle.addEventListener('click', () => {
     });
 })();
 
+document.getElementById('copyEmail').addEventListener('click', (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText('arvinmiguela08@gmail.com').then(() => {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = 'Email copied to clipboard';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2500);
+    });
+});
+
