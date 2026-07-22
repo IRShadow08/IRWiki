@@ -27,6 +27,13 @@ html::-webkit-scrollbar {
     --font-sans: 'Inter', sans-serif;
 }
 
+body[data-accent="red"] {
+    --accent: #e63946;
+    --accent-dim: rgba(230, 57, 70, 0.12);
+    --accent-glow: rgba(230, 57, 70, 0.25);
+    --accent-gradient: linear-gradient(135deg, #e63946, #ff6b6b);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -202,7 +209,7 @@ nav {
     background: var(--accent-dim);
     padding: 6px 16px;
     border-radius: 100px;
-    border: 1px solid rgba(212, 168, 83, 0.15);
+    border: 1px solid var(--accent-dim);
 }
 
 .hero-tag i {
@@ -811,7 +818,7 @@ section:not(.hero) {
     font-size: 0.78rem;
     padding: 4px 12px;
     border-radius: 6px;
-    background: rgba(212, 168, 83, 0.1);
+    background: var(--accent-dim);
     color: var(--accent);
     font-weight: 500;
 }
@@ -937,6 +944,31 @@ footer .footer-social a:hover {
     transform: scale(1.1);
 }
 
+.accent-toggle {
+    position: fixed;
+    bottom: 28px;
+    left: 88px;
+    z-index: 200;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+.accent-toggle:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: scale(1.1);
+}
+
 .back-to-top {
     position: fixed;
     bottom: 28px;
@@ -1041,6 +1073,16 @@ footer .footer-social a:hover {
 }
 
 .light-mode .theme-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.light-mode .accent-toggle {
+    background: var(--bg-elevated);
+    border-color: rgba(0, 0, 0, 0.15);
+    color: #555;
+}
+.light-mode .accent-toggle:hover {
     color: var(--accent);
     border-color: var(--accent);
 }
@@ -1260,7 +1302,7 @@ footer .footer-social a:hover {
     font-size: 0.78rem;
     padding: 4px 12px;
     border-radius: 6px;
-    background: rgba(212, 168, 83, 0.1);
+    background: var(--accent-dim);
     color: var(--accent);
     font-weight: 500;
 }

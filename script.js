@@ -50,6 +50,27 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
+const accentToggle = document.getElementById('accentToggle');
+(function() {
+    if (localStorage.getItem('accent') === 'red') {
+        document.body.setAttribute('data-accent', 'red');
+        accentToggle.style.borderColor = '#e63946';
+    }
+})();
+accentToggle.addEventListener('click', () => {
+    const body = document.body;
+    const isRed = body.getAttribute('data-accent') === 'red';
+    if (isRed) {
+        body.removeAttribute('data-accent');
+        accentToggle.style.borderColor = '';
+        localStorage.setItem('accent', 'gold');
+    } else {
+        body.setAttribute('data-accent', 'red');
+        accentToggle.style.borderColor = '#e63946';
+        localStorage.setItem('accent', 'red');
+    }
+});
+
 (function() {
     const span = document.querySelector('.hero-deco-text span');
     if (!span) return;
