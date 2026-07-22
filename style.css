@@ -383,10 +383,6 @@ section:not(.hero) {
     margin: 0 auto;
 }
 
-.section-header {
-    margin-bottom: 64px;
-}
-
 .section-tag {
     display: inline-block;
     font-size: 0.85rem;
