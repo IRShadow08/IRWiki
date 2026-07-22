@@ -35,9 +35,13 @@ window.addEventListener('scroll', () => {
 
 const themeToggle = document.getElementById('themeToggle');
 const icon = themeToggle.querySelector('i');
+const heroImg = document.getElementById('heroProfileImg');
 
 themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
     const isLight = document.body.classList.contains('light-mode');
     icon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
+    if (heroImg) {
+        heroImg.src = isLight ? 'Assets/LightModeMe.png' : 'Assets/DarkModeMe.png';
+    }
 });
