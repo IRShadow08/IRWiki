@@ -49,7 +49,7 @@ themeToggle.addEventListener('click', () => {
 (function() {
     const span = document.querySelector('.hero-deco-text span');
     if (!span) return;
-    const text = 'Arvin Miguel - Antonio';
+    const text = 'IRShadow - RvnIrs';
     let posY = 0, lastT = 0, lineH = 0, animId;
     const speed = 80;
 
