@@ -140,3 +140,25 @@ document.getElementById('copyEmail').addEventListener('click', (e) => {
     nextBtn.addEventListener('click', () => goTo(index + 1));
 })();
 
+/* ===== Skills Filters ===== */
+(function() {
+    const filters = document.querySelectorAll('.skills-filter');
+    const items = document.querySelectorAll('.skill-item');
+    if (!filters.length || !items.length) return;
+
+    filters.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filters.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const cat = btn.dataset.filter;
+            items.forEach(item => {
+                if (cat === 'all' || item.dataset.category === cat) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+})();
+
