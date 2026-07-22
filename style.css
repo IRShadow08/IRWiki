@@ -373,7 +373,7 @@ nav {
 }
 
 section {
-    padding: 120px 48px;
+    padding: 50px 48px;
     position: relative;
     z-index: 1;
 }
@@ -421,16 +421,13 @@ section:not(.hero) {
     line-height: 1.8;
 }
 
-.about-highlights {
+.about-education {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-.highlight-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 18px;
+.edu-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
@@ -438,26 +435,45 @@ section:not(.hero) {
     transition: border-color 0.25s;
 }
 
-.highlight-item:hover {
+.edu-card:hover {
     border-color: var(--accent);
 }
 
-.highlight-item .hl-icon {
-    font-size: 1.4rem;
+.edu-level {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     color: var(--accent);
-    margin-top: 2px;
-    flex-shrink: 0;
+    margin-bottom: 6px;
 }
 
-.highlight-item h4 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin-bottom: 4px;
+.edu-school {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
-.highlight-item p {
-    font-size: 0.92rem;
+.edu-honors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.edu-honor {
+    font-size: 0.82rem;
+    padding: 4px 12px;
+    border-radius: 6px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.edu-date {
+    font-size: 0.9rem;
     color: var(--text-muted);
+    font-weight: 500;
 }
 
 .roadmap {
