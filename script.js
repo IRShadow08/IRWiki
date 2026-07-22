@@ -50,20 +50,46 @@ themeToggle.addEventListener('click', () => {
     const span = document.querySelector('.hero-deco-text span');
     if (!span) return;
     const text = 'Arvin Miguel - Antonio';
+    let posY = 0, lastT = 0, lineH = 0, animId;
+    const speed = 80;
+
     const fill = () => {
         span.innerHTML = text;
-        const lineH = span.offsetHeight;
+        lineH = span.offsetHeight;
         if (!lineH) return;
-        const visible = Math.ceil(window.innerHeight / lineH) + 2;
-        const block = Array(visible).fill(text).join('<br>');
-        span.innerHTML = block + '<br>' + block;
-        const speed = 60;
-        span.style.animationDuration = ((span.offsetHeight * 0.5) / speed) + 's';
+        const visible = Math.ceil(window.innerHeight / lineH) + 4;
+        span.innerHTML = Array(visible).fill(text).join('<br>');
+        posY = 0;
+        span.style.transform = 'translateY(0)';
     };
-    requestAnimationFrame(() => requestAnimationFrame(fill));
+
+    const frame = (t) => {
+        if (!lastT) lastT = t;
+        const dt = (t - lastT) / 1000;
+        lastT = t;
+        posY += speed * dt;
+        if (posY >= lineH) {
+            posY -= lineH;
+            const lines = span.innerHTML.split('<br>');
+            lines.push(lines.shift());
+            span.innerHTML = lines.join('<br>');
+        }
+        span.style.transform = `translateY(${-posY}px)`;
+        animId = requestAnimationFrame(frame);
+    };
+
+    span.style.animation = 'none';
+    fill();
+    animId = requestAnimationFrame(frame);
+
     let timer;
     window.addEventListener('resize', () => {
         clearTimeout(timer);
-        timer = setTimeout(fill, 200);
+        timer = setTimeout(() => {
+            cancelAnimationFrame(animId);
+            fill();
+            lastT = 0;
+            animId = requestAnimationFrame(frame);
+        }, 200);
     });
 })();

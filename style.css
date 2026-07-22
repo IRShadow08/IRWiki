@@ -132,13 +132,7 @@ nav {
 
 .hero-deco-text span {
     display: block;
-    animation: decoScroll 10s linear infinite;
     will-change: transform;
-}
-
-@keyframes decoScroll {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
 }
 
 .hero-wrap {
