@@ -923,6 +923,10 @@ footer .footer-social a:hover {
     --bg: #ffffff;
 }
 
+.light-mode .hero-deco-text {
+    color: #555555;
+}
+
 .light-mode nav {
     background: rgba(255, 255, 255, 0.9);
     border-bottom-color: rgba(0, 0, 0, 0.08);
