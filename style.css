@@ -133,6 +133,7 @@ nav {
 .hero-deco-text span {
     display: block;
     animation: decoScroll 10s linear infinite;
+    will-change: transform;
 }
 
 @keyframes decoScroll {

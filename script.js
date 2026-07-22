@@ -49,16 +49,16 @@ themeToggle.addEventListener('click', () => {
 (function() {
     const span = document.querySelector('.hero-deco-text span');
     if (!span) return;
-    const text = span.textContent.trim();
+    const text = 'Arvin Miguel - Antonio';
     const fill = () => {
         span.innerHTML = text;
         const lineH = span.offsetHeight;
         if (!lineH) return;
-        const visible = Math.ceil(window.innerHeight / lineH) + 4;
-        span.innerHTML = Array(visible * 3).fill(text).join('<br>');
-        const totalH = span.offsetHeight;
+        const visible = Math.ceil(window.innerHeight / lineH) + 2;
+        const block = Array(visible).fill(text).join('<br>');
+        span.innerHTML = block + '<br>' + block;
         const speed = 60;
-        span.style.animationDuration = ((totalH * 0.5) / speed) + 's';
+        span.style.animationDuration = ((span.offsetHeight * 0.5) / speed) + 's';
     };
     requestAnimationFrame(() => requestAnimationFrame(fill));
     let timer;
