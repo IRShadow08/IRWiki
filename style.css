@@ -371,10 +371,13 @@ nav {
 
 section {
     padding: 120px 48px;
-    max-width: 1200px;
     position: relative;
-    margin: 0 auto;
     z-index: 1;
+}
+
+section:not(.hero) {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .section-header {
