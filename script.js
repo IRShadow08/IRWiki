@@ -56,6 +56,9 @@ themeToggle.addEventListener('click', () => {
         if (!lineH) return;
         const visible = Math.ceil(window.innerHeight / lineH) + 4;
         span.innerHTML = Array(visible * 3).fill(text).join('<br>');
+        const totalH = span.offsetHeight;
+        const speed = 60;
+        span.style.animationDuration = ((totalH * 0.5) / speed) + 's';
     };
     requestAnimationFrame(() => requestAnimationFrame(fill));
     let timer;
