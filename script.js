@@ -98,7 +98,7 @@ themeToggle.addEventListener('click', () => {
     });
 })();
 
-document.getElementById('copyEmail').addEventListener('click', (e) => {
+function copyEmail(e) {
     e.preventDefault();
     navigator.clipboard.writeText('arvinmiguela08@gmail.com').then(() => {
         const toast = document.createElement('div');
@@ -107,7 +107,11 @@ document.getElementById('copyEmail').addEventListener('click', (e) => {
         document.body.appendChild(toast);
         setTimeout(() => toast.remove(), 2500);
     });
-});
+}
+
+document.getElementById('copyEmail').addEventListener('click', copyEmail);
+const heroEmail = document.getElementById('copyEmailHero');
+if (heroEmail) heroEmail.addEventListener('click', copyEmail);
 
 /* ===== Experience Carousel ===== */
 (function() {
