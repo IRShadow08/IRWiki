@@ -51,10 +51,14 @@ themeToggle.addEventListener('click', () => {
 });
 
 const accentToggle = document.getElementById('accentToggle');
+const favicon = document.getElementById('favicon');
+const GOLD_FAVICON = 'Assets/IRLogo.png';
+const RED_FAVICON = 'Assets/IRLogoRed.png';
 (function() {
     if (localStorage.getItem('accent') === 'red') {
         document.body.setAttribute('data-accent', 'red');
         accentToggle.style.borderColor = '#e63946';
+        if (favicon) favicon.href = RED_FAVICON;
     }
 })();
 accentToggle.addEventListener('click', () => {
@@ -63,10 +67,12 @@ accentToggle.addEventListener('click', () => {
     if (isRed) {
         body.removeAttribute('data-accent');
         accentToggle.style.borderColor = '';
+        if (favicon) favicon.href = GOLD_FAVICON;
         localStorage.setItem('accent', 'gold');
     } else {
         body.setAttribute('data-accent', 'red');
         accentToggle.style.borderColor = '#e63946';
+        if (favicon) favicon.href = RED_FAVICON;
         localStorage.setItem('accent', 'red');
     }
 });
